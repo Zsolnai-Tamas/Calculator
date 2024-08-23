@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="CSSReset24.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Calculator</title>
+</head>
+
+<body>
+        <h1 id="largeTXT">        
+                Számológép
+        </h1>
+        <div class="container">
+                <input class="display" type="text" readonly placeholder="0"></input>
+                <div class="numb one">1</div>
+                <div class="numb two">2</div>
+                <div class="numb three">3</div>
+                <div class="numb four">4</div>
+                <div class="numb five">5</div>
+                <div class="numb six">6</div>
+                <div class="numb seven">7</div>
+                <div class="numb eight">8</div>
+                <div class="numb nine">9</div>
+                <div class="numb null">0</div>
+                <div class="func plus">+</div>
+                <div class="func minus">-</div>
+                <div class="func multiplied">*</div>
+                <div class="func divided">/</div>
+                <div class="numb point">.</div>
+                <div class="func clear">C</div>
+                <div class="func equal">=</div>
+        </div>
+        <div id="text">        
+                <p>Az alap funkciókat tudja. Ami kicsit érdekesebbée teszi, hogy billentyűzetről is lehet használni. Nem a világ teteje, de működik, és a kódja jól mutatja hol tartok éppen a Javascript programozásban.</p> 
+        </div>
+ <script>
+        let keySwitchOnOff = 0;
+ // Ha a keySwitchOnOff értéke 0 nem lehet használni a funkciós billentyűket (+ - * / .). Ha az érték 1 akkor működnek. 
+
+        function addChar(char) {
+                keySwitchOnOff = 1;    
+                document.querySelector(".display").value += char     
+                }
+         // karakter hozzáadása a kijelzőhóz
+        function keyDownFunc(numb, txt){
+                if (event.key == numb) 
+                {document.querySelector(txt).style.filter = "brightness(1.4)"}    
+                }
+        // brightness filter hozzáadésa a lenyomott billentyűhöz
+        function keyUpFunc(numba, txta){
+                if (event.key == numba) 
+                {document.querySelector(txta).style.removeProperty("filter");
+                addChar(numba);
+                keySwitchOnOff = 1;
+                }}
+        // filter elvétel a lenyomott billentyűtől + karakter hozzáadása a kijelzőhóz
+        function funcKeyUpFunc(numbb, txtb){
+                if (event.key == numbb && keySwitchOnOff == 1) 
+                {document.querySelector(txtb).style.removeProperty("filter");
+                addChar(numbb);
+                keySwitchOnOff = 0;
+                }}
+           // filter elvétel a lenyomott billentyűtől + karakter hozzáadása a kijelzőhóz a funkciós billentyűknél
+            
+    
+               
+ // Numbers   
+ 
+        document.querySelector(".one").addEventListener("click", function(){addChar("1")});       
+        // click figyelés                
+        window.addEventListener("keydown",function(event){keyDownFunc("1",".one")});                                  
+        // billentyű lenyomás figyelése     
+        window.addEventListener("keyup", function(event){keyUpFunc("1", ".one")});                           
+        // billentyű felengedés figyelése
+                
+        document.querySelector(".two").addEventListener("click", function(){addChar("2")});       
+        // click figyelés                
+        window.addEventListener("keydown",function(event){keyDownFunc("2",".two")});                                  
+        // billentyű lenyomás figyelése     
+        window.addEventListener("keyup", function(event){keyUpFunc("2", ".two")});                           
+        // billentyű felengedés figyelése
+                
+        document.querySelector(".three").addEventListener("click", function(){addChar("3")});       
+        // click figyelés                
+        window.addEventListener("keydown",function(event){keyDownFunc("3",".three")});                                  
+        // billentyű lenyomás figyelése     
+        window.addEventListener("keyup", function(event){keyUpFunc("3", ".three")});                           
+        // billentyű felengedés figyelése
+                
+        document.querySelector(".four").addEventListener("click", function(){addChar("4")});       
+        // click figyelés                
+        window.addEventListener("keydown",function(event){keyDownFunc("4",".four")});                                  
+        // billentyű lenyomás figyelése     
+        window.addEventListener("keyup", function(event){keyUpFunc("4", ".four")});                           
+        // billentyű felengedés figyelése
+                
+        document.querySelector(".five").addEventListener("click", function(){addChar("5")});       
+        // click figyelés                
+        window.addEventListener("keydown",function(event){keyDownFunc("5",".five")});                                  
+        // billentyű lenyomás figyelése     
+        window.addEventListener("keyup", function(event){keyUpFunc("5", ".five")});                           
+        // billentyű felengedés figyelése
+                
+        document.querySelector(".six").addEventListener("click", function(){addChar("6")});       
+        // click figyelés                
+        window.addEventListener("keydown",function(event){keyDownFunc("6",".six")});                                  
+        // billentyű lenyomás figyelése     
+        window.addEventListener("keyup", function(event){keyUpFunc("6", ".six")});                           
+        // billentyű felengedés figyelése
+                
+        document.querySelector(".seven").addEventListener("click", function(){addChar("7")});       
+        // click figyelés                
+        window.addEventListener("keydown",function(event){keyDownFunc("7",".seven")});                                  
+        // billentyű lenyomás figyelése     
+        window.addEventListener("keyup", function(event){keyUpFunc("7", ".seven")});                           
+        // billentyű felengedés figyelése
+                
+        document.querySelector(".eight").addEventListener("click", function(){addChar("8")});       
+        // click figyelés                
+        window.addEventListener("keydown",function(event){keyDownFunc("8",".eight")});                                  
+        // billentyű lenyomás figyelése     
+        window.addEventListener("keyup", function(event){keyUpFunc("8", ".eight")});                           
+        // billentyű felengedés figyelése
+                
+        document.querySelector(".nine").addEventListener("click", function(){addChar("9")});       
+        // click figyelés                
+        window.addEventListener("keydown",function(event){keyDownFunc("9",".nine")});                                  
+        // billentyű lenyomás figyelése     
+        window.addEventListener("keyup", function(event){keyUpFunc("9", ".nine")});                           
+        // billentyű felengedés figyelése
+                
+        document.querySelector(".null").addEventListener("click", function(){addChar("0")});       
+        // click figyelés                
+        window.addEventListener("keydown",function(event){keyDownFunc("0",".null")});                                  
+        // billentyű lenyomás figyelése     
+        window.addEventListener("keyup", function(event){keyUpFunc("0", ".null")});                           
+        // billentyű felengedés figyelése
+                
+     
+        
+
+
+
+// Functionkeys           
+        document.querySelector(".plus").addEventListener("click",            
+        ()=>{ if (keySwitchOnOff == 1){addChar("+")}
+            keySwitchOnOff = 0} );
+        // click figyelés                
+        window.addEventListener("keydown",function(event){if (keySwitchOnOff == 1){keyDownFunc("+",".plus")}});                                  
+        // billentyű lenyomás figyelése     
+        window.addEventListener("keyup",function(event){funcKeyUpFunc("+",".plus")})
+        // billentyű felengedés figyelése
+
+        document.querySelector(".minus").addEventListener("click",            
+        ()=>{ if (keySwitchOnOff == 1){addChar("-")}
+            keySwitchOnOff = 0} );
+        // click figyelés                
+        window.addEventListener("keydown",function(event){if (keySwitchOnOff == 1){keyDownFunc("-",".minus")}});                                  
+        // billentyű lenyomás figyelése     
+        window.addEventListener("keyup",function(event){funcKeyUpFunc("-",".minus")})
+        // billentyű felengedés figyelése
+
+        document.querySelector(".multiplied").addEventListener("click",            
+        ()=>{ if (keySwitchOnOff == 1){addChar("*")}
+            keySwitchOnOff = 0} );
+        // click figyelés                
+        window.addEventListener("keydown",function(event){if (keySwitchOnOff == 1){keyDownFunc("*",".multiplied")}});                                  
+        // billentyű lenyomás figyelése     
+        window.addEventListener("keyup",function(event){funcKeyUpFunc("*",".multiplied")})
+        // billentyű felengedés figyelése
+
+        document.querySelector(".divided").addEventListener("click",            
+        ()=>{ if (keySwitchOnOff == 1){addChar("/")}
+            keySwitchOnOff = 0} );
+        // click figyelés                
+        window.addEventListener("keydown",function(event){if (keySwitchOnOff == 1){keyDownFunc("/",".divided")}});                                  
+        // billentyű lenyomás figyelése     
+        window.addEventListener("keyup",function(event){funcKeyUpFunc("/",".divided")})
+        // billentyű felengedés figyelése
+
+        document.querySelector(".point").addEventListener("click",            
+        ()=>{ if (keySwitchOnOff == 1){addChar(".")}
+            keySwitchOnOff = 0} );
+        // click figyelés                
+        window.addEventListener("keydown",function(event){if (keySwitchOnOff == 1){keyDownFunc(".",".point")}});                                  
+        // billentyű lenyomás figyelése     
+        window.addEventListener("keyup",function(event){funcKeyUpFunc(".",".point")})
+        // billentyű felengedés figyelése
+
+
+//  clearDisplay    
+        document.querySelector(".clear").addEventListener("click",     
+            ()=>{ 
+            document.querySelector(".display").value = ""               
+            } );
+       // click figyelés                
+        window.addEventListener("keydown",function(event){keyDownFunc("c",".clear")});                                  
+        // billentyű lenyomás figyelése     
+
+        window.addEventListener("keyup",                              
+            (e)=>{if (e.key == "c") {                                   
+            document.querySelector(".display").value = "";
+            document.querySelector(".clear").style.removeProperty("filter")}              
+            } );
+        // billentyű felengedés figyelése
+
+//  calculate    
+        document.querySelector(".equal").addEventListener("click",      
+            ()=>{if (keySwitchOnOff == 1){ 
+            document.querySelector(".display").value = eval( document.querySelector(".display").value )            // karakter hozzáadása
+             keySwitchOnOff = 0}} );
+        // click figyelés                
+        
+        window.addEventListener("keydown",function(event){if (keySwitchOnOff == 1){keyDownFunc("=",".equal")}});                                  
+        // billentyű lenyomás figyelése     
+
+        window.addEventListener("keyup",                              
+            (e)=>{if (e.key == "=") {                                   
+            document.querySelector(".display").value = eval( document.querySelector(".display").value );
+            document.querySelector(".equal").style.removeProperty("filter"); keySwitchOnOff = 0}              
+            } ); 
+        // billentyű felengedés figyelése
+
+    </script>
+</body>
+</html>
